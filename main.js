@@ -18,10 +18,13 @@ if (currentTime.getHours() < 6) {
   text += 'Добрый вечер';
 }
 
-text += '!' + '<br>' + 'Сегодня: ' + weekDays[currentTime.getDay()];
+text += '!' + '<br>' + 'Сегодня: ' + currentTime.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric' });
+text += '' + '<br>' + 'День недели: ' + weekDays[currentTime.getDay()];
 text += '' + '<br>' + 'Текущее время: ' + currentTime.toLocaleTimeString('ru');
 text += '' + '<br>' + 'До Нового года осталось: ' + daysRemaining;
 text += lastNumber == 1 ? ' день' : ((lastNumber == 2 || lastNumber == 3 || lastNumber == 4) ? ' дня' : ' дней');
 
 newElement.innerHTML = text;
 document.body.append(newElement);
+
+console.log(new Date(2022,currentTime.getMonth() +1, 10));
